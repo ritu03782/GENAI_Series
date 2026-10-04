@@ -5,3 +5,5 @@ langchain-google-genai
 langchain-mistralai
 langchain-ollama
 streamlit
+langchain-groq
+langchain-community
