@@ -7,3 +7,4 @@ langchain-ollama
 streamlit
 langchain-groq
 langchain-community
+langgraph
