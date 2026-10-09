@@ -57,7 +57,7 @@ def process_document(path):
 
 #------LLM--------#
 
-    llm = llm = ChatGroq(
+    llm = ChatGroq(
         model=  "openai/gpt-oss-20b"
     )
 

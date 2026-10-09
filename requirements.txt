@@ -17,3 +17,4 @@ sentence-transformers
 langchain-chroma
 streamlit-mic-recorder
 groq
+pydantic
