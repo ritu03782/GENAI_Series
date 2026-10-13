@@ -18,3 +18,4 @@ langchain-chroma
 streamlit-mic-recorder
 groq
 pydantic
+requests
