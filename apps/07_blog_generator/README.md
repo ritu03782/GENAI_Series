@@ -75,7 +75,7 @@ The actual filenames and database location may differ depending on your implemen
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/ritu03782/GENAI_Series.git
+git clone https://github.com/ritu03782/GENAI_Series/tree/main/apps/07_blog_generator
 cd 07_blog_generator
 ```
 
