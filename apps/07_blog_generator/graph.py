@@ -52,9 +52,11 @@ def writer_node(state:BlogState):
         llm=llm,
         topic=state.topic,
         audience=state.audience,
+        research=state.research,
         draft_fb = state.draft_fb
     )
     state.draft = draft_data
+    state.revision_count += 1 if state.draft_fb else 0
     state.draft_fb = ""
     return state
 
