@@ -783,7 +783,11 @@ elif (
 # 16. SHOW / HIDE HISTORY
 # ============================================================
 
-st.divider()
+def toggle_history():
+    st.session_state.show_history = (
+        not st.session_state.show_history
+    )
+
 
 history_label = (
     "📕 Hide History"
@@ -791,18 +795,16 @@ history_label = (
     else "📜 Show History"
 )
 
-if st.button(
+st.button(
     history_label,
+    key="history_toggle",
     use_container_width=True,
-):
-    st.session_state.show_history = (
-        not st.session_state.show_history
-    )
+    on_click=toggle_history,
+)
 
 if st.session_state.show_history:
     st.subheader("📜 Blog History")
 
-    # Refresh the saved record from SQLite.
     saved_blog = load_blog(
         st.session_state.thread_id
     )
@@ -813,26 +815,17 @@ if st.session_state.show_history:
         history = st.session_state.history
 
     if not history:
-        st.info(
-            "No history available for this blog yet."
-        )
+        st.info("No history available for this blog yet.")
 
     else:
         st.caption(
-            f"{len(history)} recorded event(s), "
-            "newest first."
+            f"{len(history)} recorded event(s), newest first."
         )
 
         for event in reversed(history):
             timestamp = event.get("time", "")
-            event_stage = event.get(
-                "stage",
-                "Unknown",
-            )
-            action = event.get(
-                "action",
-                "Event",
-            )
+            event_stage = event.get("stage", "Unknown")
+            action = event.get("action", "Event")
 
             with st.expander(
                 f"{action} · {event_stage} · {timestamp}"
@@ -845,17 +838,11 @@ if st.session_state.show_history:
                     st.markdown(content)
 
                 if feedback:
-                    st.markdown(
-                        "**Reviewer feedback**"
-                    )
+                    st.markdown("**Reviewer feedback**")
                     st.write(feedback)
 
                 if not content and not feedback:
-                    st.caption(
-                        "No additional details."
-                    )
-
-
+                    st.caption("No additional details.")
 # ============================================================
 # 17. ERROR DETAILS
 # ============================================================
